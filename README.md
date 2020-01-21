@@ -57,8 +57,8 @@ _This boilerplate will be changing a lot at it's lifecycle start, it is currentl
 ```js
 app
 └── knexfile.js          // Database configuration
-└── build                // React build output
-└── dist                 // Electron-builder output folder
+└── build                // react build output
+└── dist                 // electron-builder output folder
 └── main-process         // Ipc main events
 └── migrations           // Knex migrations
 └── model                // Objection model files
@@ -68,11 +68,11 @@ app
     └── db.js            // Knex/objection integration
     └── electron.js      // Main process
 └── src                  // Renderer process (jsx, js, css)
-    └── setupTests.js
-    └── serviceWorker.js
+    └── setupTests.js    // jest-dom adds custom jest matchers for asserting on DOM nodes. This file allows this
+    └── serviceWorker.js // A service worker script that the renderer runs in the background separate from the process.
     └── index.css
     └── index.js         // JSX Index renderer
-    └── media            // Images, sounds, videos, etc
+    └── media            // images, sounds, videos, etc
     └── components       // JSX components
         └── App          // Test JSX Component App
 ```
