@@ -35,7 +35,7 @@ _This boilerplate will be changing a lot at it's lifecycle start, it is currentl
 
 ###### User Interface
 
-- ![](https://i.imgur.com/zcJJSVm.png) React.js
+- ![](https://i.imgur.com/zcJJSVm.png) React
 
 ###### Database
 
