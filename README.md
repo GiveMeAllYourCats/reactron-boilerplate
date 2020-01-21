@@ -1,68 +1,131 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# reactron-boilerplate
 
-## Available Scripts
+![](https://i.imgur.com/T95ZyDI.png)
 
-In the project directory, you can run:
+[![HitCount](http://hits.dwyl.io/michaeldegroot/reactron-boilerplate.svg)](http://hits.dwyl.io/michaeldegroot/reactron-boilerplate) [![Node version](https://img.shields.io/node/v/cipher-chain.svg)](https://www.npmjs.com/package/cipher-chain) [![Licensing](https://img.shields.io/github/license/michaeldegroot/reactron-boilerplate.svg)](https://raw.githubusercontent.com/michaeldegroot/reactron-boilerplate/master/LICENSE) [![Repo size](https://img.shields.io/github/repo-size/michaeldegroot/reactron-boilerplate.svg.svg)](https://github.com/michaeldegroot/reactron-boilerplate.svg) [![Help us and star this project](https://img.shields.io/github/stars/michaeldegroot/reactron-boilerplate.svg?style=social)](https://github.com/michaeldegroot/reactron-boilerplate)
 
-### `npm start`
+`reactron-boilerplate` is a simple to use, simple to understand, no webpack, no gulp/grunt, non ejected `react` desktop app run on `electron`.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This boilerplate is ment to be expanded on by the git cloner, gives you the bare basics to make awesome stuff quick.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+[x] _Easy customization_
+[x] _Hot reload and auto restarts_
+[x] _Distribution management_
+[x] _Database handling, migrations_
+[x] _Unit testing_
+[x] _Splash window_
+[x] _Electron for desktop code_
+[x] _React for User interface_
+[x] _Objection.js (knex.js) for database layer (mysql, mysql2, sqlite, postgres, etc)_
+[x] _Inter Process Communication (send/receive between main/renderer windows)_
+[ ] _JSX file support (To be implemented)_
+[ ] _Redux (to be determined)_
+[ ] _PostCSS/SASS? (to be determined)_
+[ ] _Typescript (to be determined)_
+[ ] _Optional webpack? (to be determined)_
 
-### `npm test`
+**Please note:**
+_This boilerplate will be changing a lot at it's lifecycle start, it is currently in it's infancy, a lot of things are subject to change. If you want to experiment right now it is recommended to fork the repo (or use version tagging/lock) so you can work on frozen version of the code where you can update on your own leisure_
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Tech Stack
 
-### `npm run build`
+###### Desktop
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ![](https://i.imgur.com/qf8vXHi.png) Electron
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+###### User Interface
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ![](https://i.imgur.com/zcJJSVm.png) React.js
 
-### `npm run eject`
+###### Database
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- ![](https://i.imgur.com/ETYR7Uo.png) Objection.js
+- Knex.js
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+###### Distribution
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- electron-builder
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+###### Other Library's
 
-## Learn More
+- custom-electron-titlebar
+- electron-util
+- electron-window-state
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project Overview
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+app
+└── knexfile.js          // Database configuration
+└── build                // React build output
+└── dist                 // Electron-builder output folder
+└── main-process         // Ipc main events
+└── migrations           // Knex migrations
+└── model                // Objection model files
+└── public
+    └── index.html       // Main window entry
+    └── splash.html      // Splash window entry
+    └── db.js            // Knex/objection integration
+    └── electron.js      // Main process
+└── src                  // Renderer process (jsx, js, css)
+    └── setupTests.js
+    └── serviceWorker.js
+    └── index.css
+    └── index.js         // JSX Index renderer
+    └── media            // Images, sounds, videos, etc
+    └── components       // JSX components
+        └── App          // Test JSX Component App
+```
 
-### Code Splitting
+## Install
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```bash
+git clone git@github.com:michaeldegroot/reactron-boilerplate.git
+cd reactron-boilerplate
+npm install
+```
 
-### Analyzing the Bundle Size
+## Usage
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+##### Development
 
-### Making a Progressive Web App
+###### Testing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```bash
+npm run test
+```
 
-### Advanced Configuration
+Tests are located in `src/components/App/App.test.js` for example
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+###### Developing
 
-### Deployment
+_Development and auto reload/restart scripts are activated by the following command_
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```bash
+npm run dev
+```
 
-### `npm run build` fails to minify
+this will activate a watch script for changes and auto boot the electron window, unless there was a error (will show in console)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+##### Production
+
+###### Building
+
+```bash
+npm run build
+```
+
+###### Distribution
+
+_You can create distribution files (installation/exe) but you will need to sign them yourself_
+
+```bash
+npm run dist
+```
+
+checkout [package.json](https://github.com/michaeldegroot/reactron-boilerplate/blob/master/package.json) and [electron-builder](https://github.com/electron-userland/electron-builder) for more info
+
+## License
+
+Copyright (c) 2020 by [GiveMeAllYourCats](https://github.com/michaeldegroot). Some rights reserved.<br>
+[reactron-boilerplate](https://github.com/michaeldegroot/reactron-boilerplate) is licensed under the MIT License as stated in the [LICENSE file](https://github.com/michaeldegroot/reactron-boilerplate/blob/master/LICENSE).
