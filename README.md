@@ -85,9 +85,7 @@ cd reactron-boilerplate
 npm install
 ```
 
-## Usage
-
-#### Development
+## Development
 
 ###### Testing
 
@@ -107,7 +105,7 @@ npm run dev
 
 this will activate a watch script for changes and auto boot the electron window, unless there was a error (will show in console)
 
-#### Production
+## Production
 
 ###### Building
 
