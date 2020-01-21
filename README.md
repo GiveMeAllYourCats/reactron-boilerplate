@@ -8,21 +8,21 @@
 
 This boilerplate is ment to be expanded on by the git cloner, gives you the bare basics to make awesome stuff quick.
 
- - [x] _Easy customization_
- - [x] _Hot reload and auto restarts_
- - [x] _Distribution management_
- - [x] _Database handling, migrations_
- - [x] _Unit testing_
- - [x] _Splash window_
- - [x] _Electron for desktop code_
- - [x] _React for User interface_
- - [x] _Objection.js (knex.js) for database layer (mysql, mysql2, sqlite, postgres, etc)_
- - [x] _Inter Process Communication (send/receive between main/renderer windows)_
- - [ ] _JSX file support (To be implemented)_
- - [ ] _Redux (to be determined)_
- - [ ] _PostCSS/SASS? (to be determined)_
- - [ ] _Typescript (to be determined)_
- - [ ] _Optional webpack? (to be determined)_
+- [x] _Easy customization_
+- [x] _Hot reload and auto restarts_
+- [x] _Distribution management_
+- [x] _Database handling, migrations_
+- [x] _Unit testing_
+- [x] _Splash window_
+- [x] _Electron for desktop code_
+- [x] _React for User interface_
+- [x] _Objection.js (knex.js) for database layer (mysql, mysql2, sqlite, postgres, etc)_
+- [x] _Inter Process Communication (send/receive between main/renderer windows)_
+- [ ] _JSX file support (To be implemented)_
+- [ ] _Redux (to be determined)_
+- [ ] _PostCSS/SASS? (to be determined)_
+- [ ] _Typescript (to be determined)_
+- [ ] _Optional webpack? (to be determined)_
 
 **Please note:**
 _This boilerplate will be changing a lot at it's lifecycle start, it is currently in it's infancy, a lot of things are subject to change. If you want to experiment right now it is recommended to fork the repo (or use version tagging/lock) so you can work on frozen version of the code where you can update on your own leisure_
@@ -87,7 +87,7 @@ npm install
 
 ## Usage
 
-##### Development
+#### Development
 
 ###### Testing
 
@@ -107,7 +107,7 @@ npm run dev
 
 this will activate a watch script for changes and auto boot the electron window, unless there was a error (will show in console)
 
-##### Production
+#### Production
 
 ###### Building
 
