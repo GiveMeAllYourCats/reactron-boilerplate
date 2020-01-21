@@ -8,12 +8,9 @@
 
 This boilerplate is ment to be expanded on by the git cloner, gives you the bare basics to make awesome stuff quick.
 
-[x] _Easy customization_
-
-[x] _Hot reload and auto restarts_
-
-[x] _Distribution management_
-
+ - [x] _Easy customization_
+ - [x] _Hot reload and auto restarts_
+ - [x] _Distribution management_
 [x] _Database handling, migrations_
 [x] _Unit testing_
 [x] _Splash window_
