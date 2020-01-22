@@ -1,7 +1,7 @@
 require('dotenv').config()
 const path = require('path')
 const { Model, knexSnakeCaseMappers } = require('objection')
-const config = require('../knexfile')
+const config = require('../../knexfile')
 const glob = require('glob')
 const isDev = require('electron-is-dev')
 const Knex = require('knex')

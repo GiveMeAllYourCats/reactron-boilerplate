@@ -5,10 +5,8 @@
   "main": "public/electron.js",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
     "app-root-path": "^3.0.0",
+    "bootstrap": "^4.4.1",
     "custom-electron-titlebar": "^3.2.1",
     "electron-is-dev": "^1.1.0",
     "electron-util": "^0.13.1",
@@ -17,10 +15,13 @@
     "knex": "^0.20.8",
     "mysql": "^2.17.1",
     "mysql2": "^2.1.0",
+    "node-sass": "^4.13.1",
     "objection": "^2.1.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0",
+    "react-icons": "^3.8.0",
+    "react-markdown": "^4.3.1",
+    "react-router-dom": "^5.1.2",
     "sqlite3": "^4.1.1"
   },
   "engines": {
@@ -47,14 +48,14 @@
   "watch": {
     "electron-dev": {
       "patterns": [
-        "main-process",
-        "model",
-        "public",
-        "*.js",
-        "package.json"
+        "**/*"
       ],
       "ignore": "src",
-      "extensions": "*",
+      "extensions": [
+        "*.js",
+        ".html",
+        ".*"
+      ],
       "inherit": true,
       "quiet": false,
       "legacyWatch": true,
@@ -64,15 +65,16 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "test": "mocha",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "migrate:latest": "npx knex migrate:latest",
     "migrate:rollback": "npx knex migrate:rollback",
     "electron": "electron .",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
     "electron-dev": "electron . --inspect",
-    "watch-dev": "npm-watch electron-dev",
-    "dev": "concurrently --kill-others \"npm run watch-dev\" \"npm run start\"",
+    "dev": "concurrently --kill-others \"npm-watch electron-dev\" \"npm run start\"",
     "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
@@ -105,10 +107,16 @@
     ]
   },
   "devDependencies": {
-    "directory-tree": "^2.2.4",
+    "browserslist": "^4.8.5",
     "concurrently": "^5.0.2",
     "electron": "^7.1.9",
     "electron-builder": "^22.2.0",
-    "npm-watch": "^0.6.0"
+    "electron-devtools-installer": "^2.2.4",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.0",
+    "mocha": "^7.0.0",
+    "npm-watch": "^0.6.0",
+    "react-scripts": "^3.3.0",
+    "spectron": "^9.0.0"
   }
 }

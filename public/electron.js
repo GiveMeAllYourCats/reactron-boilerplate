@@ -7,7 +7,7 @@ const glob = require('glob')
 const isDev = require('electron-is-dev')
 const windowStateKeeper = require('electron-window-state')
 const { resolve } = require('app-root-path')
-const db = require('./db')
+const db = require('./modules/db')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -15,7 +15,7 @@ let mainWindow
 
 const ipc = {}
 const files = glob.sync(path.join(__dirname, '..', 'main-process', '**/*.js'))
-for (let filepath of files) {
+for (const filepath of files) {
   const name = path.basename(filepath, '.js')
   ipc[name] = require(filepath)
 }
@@ -23,7 +23,7 @@ for (let filepath of files) {
 const createWindow = async () => {
   await db.connect()
   const { screenWidth, screenHeight } = screen.getPrimaryDisplay().workAreaSize
-  let mainWindowState = windowStateKeeper({
+  const mainWindowState = windowStateKeeper({
     defaultWidth: screenWidth,
     defaultHeight: screenHeight
   })
@@ -90,10 +90,22 @@ const createWindow = async () => {
   })
 }
 
+const installExtensions = async () => {
+  const installer = require('electron-devtools-installer')
+  const forceDownload = !!process.env.UPGRADE_EXTENSIONS
+  const extensions = ['REACT_DEVELOPER_TOOLS']
+  return Promise.all(extensions.map(name => installer.default(installer[name], forceDownload))).catch(console.log)
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', async () => {
+  if (isDev && process.argv.indexOf('--noDevServer') === -1) {
+    await installExtensions()
+  }
+  createWindow()
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
@@ -106,6 +118,16 @@ app.on('activate', function() {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow()
+})
+
+app.on('web-contents-created', (e, contents) => {
+  contents.on('new-window', (e, url) => {
+    e.preventDefault()
+    require('open')(url)
+  })
+  contents.on('will-navigate', (e, url) => {
+    if (url !== contents.getURL()) e.preventDefault(), require('open')(url)
+  })
 })
 
 // In this file you can include the rest of your app's specific main process

@@ -1,15 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './components/App/App.js'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker'
+import App from './components/App/App.jsx'
+import './index.css'
+import './bootstrap.scss'
 
-// Requires
-const { resolve } = window.require('app-root-path')
 const customTitlebar = window.require('custom-electron-titlebar')
-
-// Init custom titlebar
-const titlebar = new customTitlebar.Titlebar({
+new customTitlebar.Titlebar({
   backgroundColor: customTitlebar.Color.fromHex('#444'),
   icon: './assets/images/electron.svg'
 })

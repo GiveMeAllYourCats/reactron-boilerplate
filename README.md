@@ -1,78 +1,108 @@
 # reactron-boilerplate
 
-![](https://i.imgur.com/T95ZyDI.png)
+![](https://i.imgur.com/EWE2UUU.png)
 
-[![HitCount](http://hits.dwyl.io/michaeldegroot/reactron-boilerplate.svg)](http://hits.dwyl.io/michaeldegroot/reactron-boilerplate) [![Node version](https://img.shields.io/node/v/cipher-chain.svg)](https://www.npmjs.com/package/cipher-chain) [![Licensing](https://img.shields.io/github/license/michaeldegroot/reactron-boilerplate.svg)](https://raw.githubusercontent.com/michaeldegroot/reactron-boilerplate/master/LICENSE) [![Repo size](https://img.shields.io/github/repo-size/michaeldegroot/reactron-boilerplate.svg.svg)](https://github.com/michaeldegroot/reactron-boilerplate.svg) [![Help us and star this project](https://img.shields.io/github/stars/michaeldegroot/reactron-boilerplate.svg?style=social)](https://github.com/michaeldegroot/reactron-boilerplate)
+[![HitCount](http://hits.dwyl.io/michaeldegroot/reactron-boilerplate.svg)](http://hits.dwyl.io/michaeldegroot/reactron-boilerplate) [![Node version](https://img.shields.io/node/v/cipher-chain.svg)](https://www.npmjs.com/package/cipher-chain) [![Licensing](https://img.shields.io/github/license/michaeldegroot/reactron-boilerplate.svg)](https://raw.githubusercontent.com/michaeldegroot/reactron-boilerplate/master/LICENSE) [![Help us and star this project](https://img.shields.io/github/stars/michaeldegroot/reactron-boilerplate.svg?style=social)](https://github.com/michaeldegroot/reactron-boilerplate)
 
-`reactron-boilerplate` is a simple to use, simple to understand, no webpack, no gulp/grunt, non ejected `react` desktop app run on `electron`.
+![break]
 
-This boilerplate is ment to be expanded on by the git cloner, gives you the bare basics to make awesome stuff quick.
+`reactron-boilerplate` is a `Create React App` based boilerplate, simple to use, simple to understand, non ejected `react` desktop app run on `electron` with loads of library goodies.
+
+This boilerplate is meant to be expanded on by the git cloner, gives you the bare basics to make awesome stuff quick.
 
 - [x] _Easy customization_
 - [x] _Hot reload and auto restarts_
-- [x] _Distribution management_
+- [x] _Cross platform distribution_
 - [x] _Database handling, migrations_
-- [x] _Unit testing_
+- [x] _Integration testing_
 - [x] _Splash window_
-- [x] _Electron for desktop code_
-- [x] _React for User interface_
-- [x] _Objection.js (knex.js) for database layer (mysql, mysql2, sqlite, postgres, etc)_
-- [x] _Inter Process Communication (send/receive between main/renderer windows)_
-- [ ] _JSX file support (To be implemented)_
-- [ ] _Redux (to be determined)_
-- [ ] _PostCSS/SASS? (to be determined)_
-- [ ] _Typescript (to be determined)_
-- [ ] _Optional webpack? (to be determined)_
+- [x] _React dev tools_
+- [x] _Internal routing_
+- [x] _IPC (Inter Process Communication)_
+- [x] _JSX file support_
+- [x] _SASS_
+- [ ] _MobX (to be implemented)_
 
 **Please note:**
-_This boilerplate will be changing a lot at it's lifecycle start, it is currently in it's infancy, a lot of things are subject to change. If you want to experiment right now it is recommended to fork the repo (or use version tagging/lock) so you can work on frozen version of the code where you can update on your own leisure_
+_This boilerplate will be changing a lot at it's life cycle start, it is currently in it's infancy, a lot of things are subject to change. If you want to experiment right now it is recommended to fork the repository (or use version tagging/lock) so you can work on frozen version of the code where you can update on your own leisure_
 
 ### Tech Stack
 
-###### Desktop
+###### Desktop Application
 
-- ![](https://i.imgur.com/qf8vXHi.png) Electron
+- ![](https://i.imgur.com/qf8vXHi.png) [Electron](https://electronjs.org/)
 
 ###### User Interface
 
-- ![](https://i.imgur.com/zcJJSVm.png) React
+- ![](https://i.imgur.com/zcJJSVm.png) [React](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com/)
+- [React Icons](https://react-icons.netlify.com/#/)
 
-###### Database
+###### State Management
 
-- ![](https://i.imgur.com/ETYR7Uo.png) Objection.js
-- Knex.js
+- ![](https://i.imgur.com/XTJZPJ6.png) [MobX](https://mobx.js.org/)
+- [react-router](https://reacttraining.com/react-router/web/guides/quick-start)
+
+###### Testing Suite
+
+- [Spectron](https://electronjs.org/spectron)
+- ![](https://i.imgur.com/wqzzLXl.png) [Mocha](https://mochajs.org/)
+
+###### Continiuous Integration
+
+- [Travis CI](https://travis-ci.org/)
+
+###### Data Storage (Database)
+
+- ![](https://i.imgur.com/ETYR7Uo.png) [Objection.js](https://vincit.github.io/objection.js/)
+- [Knex.js](http://knexjs.org/)
+
+###### Compiler
+
+- [Babel](https://babeljs.io/)
+
+###### Linting & Config
+
+- [ESLint](https://eslint.org/)
+- [EditorConfig](https://editorconfig.org/)
 
 ###### Distribution
 
-- electron-builder
+- [electron-builder](https://github.com/electron-userland/electron-builder)
 
 ###### Other Library's
 
-- custom-electron-titlebar
-- electron-util
-- electron-window-state
+- [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer)
+- [custom-electron-titlebar](https://github.com/AlexTorresSk/custom-electron-titlebar)
+- [electron-util](https://github.com/sindresorhus/electron-util)
+- [electron-window-state](https://github.com/mawie81/electron-window-state)
 
 ## Project Overview
 
 ```js
 app
-└── knexfile.js          // Database configuration
-└── build                // react build output
-└── dist                 // electron-builder output folder
-└── main-process         // Ipc main events
-└── migrations           // Knex migrations
-└── model                // Objection model files
+├── knexfile.js          // Database configuration
+├── travis.yml           // Travis CI build file
+├── .eslintrc            // ESLint config
+├── .editorconfig        // EditorConfig config
+├── build                // react build output
+├── dist                 // electron-builder output folder
+├── main-process         // Ipc main events
+├── migrations           // Knex migrations
+├── text                 // Integration test folder
+├── model                // Objection model files
 └── public
-    └── index.html       // Main window entry
-    └── splash.html      // Splash window entry
-    └── db.js            // Knex/objection integration
-    └── electron.js      // Main process
+    ├── modules
+        └── db.js        // Knex/objection integration
+    ├── assets           // Include assets like images, sounds etc
+    ├── index.html       // Template index
+    ├── splash.html      // Splash index
+    ├── electron.js      // Main entry file
 └── src                  // Renderer process (jsx, js, css)
-    └── setupTests.js    // jest-dom adds custom jest matchers for asserting on DOM nodes. This file allows this
-    └── serviceWorker.js // A service worker script that the renderer runs in the background separate from the process.
-    └── index.css
-    └── index.js         // JSX Index renderer
-    └── media            // images, sounds, videos, etc
+    ├── setupTests.js    // jest-dom adds custom jest matchers for asserting on DOM nodes. This file allows this
+    ├── serviceWorker.js // A service worker script that the renderer runs in the background separate from the process.
+    ├── index.css
+    ├── index.jsx        // Renderer entry file
     └── components       // JSX components
         └── App          // Test JSX Component App
 ```
